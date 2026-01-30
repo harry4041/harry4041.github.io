@@ -1,17 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My GitHub Website</title>
-  <style>
-    body {
-      font-family: Arial;
-      text-align: center;
-      padding-top: 50px;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Downtown Pub Crawl</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>🚀 It works!</h1>
-  <p>This site is hosted for free on GitHub Pages.</p>
+
+<header class="top-bar">
+  <h1>Downtown Pub Crawl</h1>
+  <button class="join-btn">Join</button>
+</header>
+
+<section class="map-section">
+  <!-- Replace iframe src with a real Google Maps embed later -->
+  <iframe 
+    src="https://www.google.com/maps?q=pub&output=embed"
+    loading="lazy">
+  </iframe>
+</section>
+
+<section class="content">
+
+  <div class="event-meta">
+    <p><strong>Friday, May 27</strong> · Starts at 7:00 PM</p>
+  </div>
+
+  <h2>Schedule</h2>
+  <ul class="schedule">
+    <li><span>7:00 PM</span> O'Malley's Tavern</li>
+    <li><span>8:00 PM</span> The Tipsy Pint</li>
+    <li><span>9:00 PM</span> The Brew House</li>
+    <li><span>10:00 PM</span> Club Metro</li>
+  </ul>
+
+  <h2>Who's Going?</h2>
+  <div class="profiles">
+    <div class="profile">
+      <img src="https://i.pravatar.cc/100?img=1" />
+      <span>Sarah</span>
+    </div>
+    <div class="profile">
+      <img src="https://i.pravatar.cc/100?img=2" />
+      <span>Mike</span>
+    </div>
+    <div class="profile">
+      <img src="https://i.pravatar.cc/100?img=3" />
+      <span>Laura</span>
+    </div>
+    <div class="profile">
+      <img src="https://i.pravatar.cc/100?img=4" />
+      <span>Jason</span>
+    </div>
+    <div class="profile">
+      <img src="https://i.pravatar.cc/100?img=5" />
+      <span>Emily</span>
+    </div>
+  </div>
+
+</section>
+
 </body>
 </html>

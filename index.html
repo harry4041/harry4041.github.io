@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Downtown Pub Crawl</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -14,52 +14,55 @@
 </header>
 
 <section class="map-section">
-  <!-- Replace iframe src with a real Google Maps embed later -->
-  <iframe 
-    src="https://www.google.com/maps?q=pub&output=embed"
-    loading="lazy">
-  </iframe>
+  <div id="map"></div>
 </section>
 
-<section class="content">
+<main class="content">
 
-  <div class="event-meta">
-    <p><strong>Friday, May 27</strong> · Starts at 7:00 PM</p>
-  </div>
+  <p class="event-meta"><strong>Friday, May 27</strong> · Starts at 7:00 PM</p>
 
   <h2>Schedule</h2>
   <ul class="schedule">
-    <li><span>7:00 PM</span> O'Malley's Tavern</li>
-    <li><span>8:00 PM</span> The Tipsy Pint</li>
-    <li><span>9:00 PM</span> The Brew House</li>
-    <li><span>10:00 PM</span> Club Metro</li>
+    <li onclick="openPub(0)"><span>7:00 PM</span> O'Malley's Tavern</li>
+    <li onclick="openPub(1)"><span>8:00 PM</span> The Tipsy Pint</li>
+    <li onclick="openPub(2)"><span>9:00 PM</span> The Brew House</li>
+    <li onclick="openPub(3)"><span>10:00 PM</span> Club Metro</li>
   </ul>
 
   <h2>Who's Going?</h2>
   <div class="profiles">
-    <div class="profile">
-      <img src="https://i.pravatar.cc/100?img=1" />
+    <div class="profile" onclick="openProfile(this)"
+         data-name="Sarah" data-age="28"
+         data-bio="First pub crawl — excited 🍻">
+      <img src="https://i.pravatar.cc/100?img=1">
       <span>Sarah</span>
     </div>
-    <div class="profile">
-      <img src="https://i.pravatar.cc/100?img=2" />
+
+    <div class="profile" onclick="openProfile(this)"
+         data-name="Mike" data-age="31"
+         data-bio="Craft beer fan and pub quiz legend.">
+      <img src="https://i.pravatar.cc/100?img=2">
       <span>Mike</span>
-    </div>
-    <div class="profile">
-      <img src="https://i.pravatar.cc/100?img=3" />
-      <span>Laura</span>
-    </div>
-    <div class="profile">
-      <img src="https://i.pravatar.cc/100?img=4" />
-      <span>Jason</span>
-    </div>
-    <div class="profile">
-      <img src="https://i.pravatar.cc/100?img=5" />
-      <span>Emily</span>
     </div>
   </div>
 
-</section>
+</main>
+
+<!-- Modal -->
+<div id="modal-overlay" class="modal-overlay hidden">
+  <div class="modal">
+    <button class="close-btn" onclick="closeModal()">×</button>
+    <div id="modal-content"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+<!-- 🔴 REPLACE YOUR_API_KEY -->
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZOLaFpzGxThm2_-T4pwzKkk-yIE9gnYQ&callback=initMap"
+  async defer>
+</script>
 
 </body>
 </html>

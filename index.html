@@ -32,18 +32,32 @@
   <h2>Who's Going?</h2>
   <div class="profiles">
     <div class="profile" onclick="openProfile(this)"
-         data-name="Sarah" data-age="28"
-         data-bio="First pub crawl — excited 🍻">
+         data-name="Sarah"
+         data-age="28"
+         data-bio="First pub crawl — excited 🍻"
+         data-img="https://i.pravatar.cc/100?img=1">
       <img src="https://i.pravatar.cc/100?img=1">
       <span>Sarah</span>
     </div>
 
     <div class="profile" onclick="openProfile(this)"
-         data-name="Mike" data-age="31"
-         data-bio="Craft beer fan and pub quiz legend.">
+         data-name="Mike"
+         data-age="31"
+         data-bio="Craft beer fan and pub quiz legend."
+         data-img="https://i.pravatar.cc/100?img=2">
       <img src="https://i.pravatar.cc/100?img=2">
       <span>Mike</span>
     </div>
+
+    <div class="profile" onclick="openProfile(this)"
+         data-name="Laura"
+         data-age="26"
+         data-bio="Just here for a good night out"
+         data-img="https://i.pravatar.cc/100?img=3">
+      <img src="https://i.pravatar.cc/100?img=3">
+      <span>Laura</span>
+    </div>
+
   </div>
 
 </main>
@@ -57,8 +71,6 @@
 </div>
 
 <script src="script.js"></script>
-
-<!-- 🔴 REPLACE YOUR_API_KEY -->
 <script
   src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZOLaFpzGxThm2_-T4pwzKkk-yIE9gnYQ&callback=initMap"
   async defer>

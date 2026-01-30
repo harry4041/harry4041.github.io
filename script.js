@@ -36,9 +36,7 @@ function initMap() {
   });
 
   directionsService = new google.maps.DirectionsService();
-  directionsRenderer = new google.maps.DirectionsRenderer({
-    suppressMarkers: true
-  });
+  directionsRenderer = new google.maps.DirectionsRenderer({ suppressMarkers: true });
   directionsRenderer.setMap(map);
 
   pubs.forEach((pub, i) => {
@@ -59,16 +57,11 @@ function drawRoute() {
     {
       origin: pubs[0].position,
       destination: pubs[pubs.length - 1].position,
-      waypoints: pubs.slice(1, -1).map(p => ({
-        location: p.position,
-        stopover: true
-      })),
+      waypoints: pubs.slice(1, -1).map(p => ({ location: p.position, stopover: true })),
       travelMode: google.maps.TravelMode.WALKING
     },
     (result, status) => {
-      if (status === "OK") {
-        directionsRenderer.setDirections(result);
-      }
+      if (status === "OK") directionsRenderer.setDirections(result);
     }
   );
 }
@@ -82,8 +75,10 @@ function openPub(index) {
   `);
 }
 
+// ✅ Updated to show profile picture
 function openProfile(el) {
   showModal(`
+    <img src="${el.dataset.img}" alt="${el.dataset.name}">
     <h2>${el.dataset.name}</h2>
     <p><strong>Age:</strong> ${el.dataset.age}</p>
     <p>${el.dataset.bio}</p>

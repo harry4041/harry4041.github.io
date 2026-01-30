@@ -9,6 +9,7 @@ body {
   color: #202124;
 }
 
+/* Top bar */
 .top-bar {
   display: flex;
   justify-content: space-between;
@@ -26,6 +27,7 @@ body {
   cursor: pointer;
 }
 
+/* Map */
 .map-section {
   height: 50vh;
 }
@@ -35,6 +37,7 @@ body {
   height: 100%;
 }
 
+/* Content */
 .content {
   padding: 16px;
   max-width: 900px;
@@ -49,6 +52,7 @@ h2 {
   margin: 24px 0 12px;
 }
 
+/* Schedule */
 .schedule li {
   padding: 14px 0;
   border-bottom: 1px solid #e0e0e0;
@@ -60,14 +64,17 @@ h2 {
   margin-right: 12px;
 }
 
+/* Profiles */
 .profiles {
   display: flex;
   gap: 16px;
+  padding-bottom: 8px;
 }
 
 .profile {
   text-align: center;
   cursor: pointer;
+  min-width: 72px;
 }
 
 .profile img {
@@ -76,6 +83,7 @@ h2 {
   border-radius: 50%;
 }
 
+/* Modal */
 .modal-overlay {
   position: fixed;
   inset: 0;
@@ -92,6 +100,14 @@ h2 {
   width: 90%;
   max-width: 400px;
   position: relative;
+  text-align: center;
+}
+
+.modal img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 12px;
 }
 
 .close-btn {

@@ -1,0 +1,278 @@
+/* ================================================================
+   HERO
+   ================================================================ */
+.hero {
+  position: relative;
+  padding: 80px 20px 72px;
+  overflow: hidden;
+}
+
+/* subtle warm radial glow behind the text */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -40%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232,168,56,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-inner {
+  max-width: 560px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-eyebrow {
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--accent);
+  margin-bottom: 16px;
+}
+
+.hero-title {
+  font-size: clamp(2.4rem, 6vw, 3.6rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  color: var(--text-primary);
+  margin-bottom: 18px;
+}
+.hero-title span {
+  color: var(--accent);
+}
+
+.hero-sub {
+  font-size: 1rem;
+  color: var(--text-muted);
+  max-width: 400px;
+  margin: 0 auto 32px;
+  line-height: 1.5;
+}
+
+.btn-hero {
+  display: inline-block;
+  background: var(--accent);
+  color: #1a1a1a;
+  border: none;
+  padding: 13px 32px;
+  border-radius: 30px;
+  font-size: 0.92rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-hero:hover {
+  background: var(--accent-dim);
+  transform: translateY(-1px);
+}
+
+/* ================================================================
+   ACTIVE STRIP
+   ================================================================ */
+.active-strip {
+  padding: 16px 20px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.strip-inner {
+  max-width: 680px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.strip-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--text-subtle);
+  white-space: nowrap;
+}
+
+.strip-avatars {
+  display: flex;
+  gap: -4px; /* negative gap doesn't work; use negative margin on children */
+}
+
+.strip-avatar {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--bg-dark);
+  margin-left: -6px;
+  transition: transform 0.15s;
+}
+.strip-avatar:first-child { margin-left: 0; }
+.strip-avatar:hover { transform: scale(1.12); z-index: 2; }
+
+.strip-avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+/* green "online" dot */
+.strip-dot {
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--green);
+  border: 2px solid var(--bg-dark);
+}
+
+/* ================================================================
+   EVENTS FEED
+   ================================================================ */
+.events-feed {
+  padding: 40px 20px 60px;
+}
+
+.feed-inner {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.feed-heading {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-subtle);
+  margin-bottom: 16px;
+}
+
+.event-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ── single event card ── */
+.event-card {
+  display: block;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  transition: background 0.2s, border-color 0.2s, transform 0.15s;
+  cursor: pointer;
+}
+.event-card:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--accent-dim);
+  transform: translateY(-2px);
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.card-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.card-date {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+.card-time {
+  font-size: 0.75rem;
+  color: var(--text-subtle);
+}
+
+/* joined badge */
+.card-badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 3px 9px;
+  border-radius: 12px;
+}
+.card-badge.joined {
+  background: rgba(52,168,83,0.15);
+  color: var(--green);
+}
+
+.card-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--text-primary);
+}
+
+.card-location {
+  font-size: 0.78rem;
+  color: var(--text-subtle);
+  margin-bottom: 8px;
+}
+
+.card-desc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.45;
+  margin-bottom: 16px;
+}
+
+/* ── card footer: avatar stack + going count ── */
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-avatars {
+  display: flex;
+  align-items: center;
+}
+
+.card-avatar {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--bg-card);
+  margin-left: -7px;
+  transition: transform 0.15s;
+}
+.card-avatar:first-child { margin-left: 0; }
+.card-avatar:hover { transform: scale(1.15); z-index: 2; position: relative; }
+
+.card-avatar-more {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--bg-card-hover);
+  border: 2px solid var(--bg-card);
+  margin-left: -7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.card-going {
+  font-size: 0.75rem;
+  color: var(--text-subtle);
+  font-weight: 600;
+}

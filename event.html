@@ -3,21 +3,59 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Pub Crawl</title>
+  <title>Downtown Pub Crawl</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="event.css">
 </head>
-<body class="home">
+<body class="event">
 
 <!-- ─── TOP NAV ─── -->
 <nav class="nav">
   <a href="index.html" class="nav-logo">🍺 Pub Crawl</a>
   <div class="nav-right" id="nav-right">
-    <!-- filled by JS based on session state -->
+    <!-- filled by JS -->
   </div>
 </nav>
 
-<!-- ─── AUTH MODAL ─── -->
+<!-- ─── EVENT HEADER ─── -->
+<header class="event-header">
+  <a href="index.html" class="back-link">← Back</a>
+  <div class="event-header-inner">
+    <h1 id="event-title">Downtown Pub Crawl</h1>
+    <p class="event-meta" id="event-meta"></p>
+    <div class="event-header-actions">
+      <button class="btn-join" id="join-btn" onclick="handleJoinClick()">Join</button>
+      <span class="attendee-count" id="attendee-count"></span>
+    </div>
+  </div>
+</header>
+
+<!-- ─── MAP ─── -->
+<section class="map-section">
+  <div id="map"></div>
+</section>
+
+<!-- ─── CONTENT ─── -->
+<main class="content">
+
+  <h2>Schedule</h2>
+  <ul class="schedule" id="schedule-list">
+    <!-- filled by JS -->
+  </ul>
+
+  <h2>Who's Going?</h2>
+  <div class="profiles" id="profiles-container"></div>
+</main>
+
+<!-- ─── MODAL ─── -->
+<div id="modal-overlay" class="modal-overlay hidden" onclick="handleModalBg(event)">
+  <div class="modal">
+    <button class="close-btn" onclick="closeModal()">×</button>
+    <div id="modal-content"></div>
+  </div>
+</div>
+
+<!-- ─── AUTH MODAL (same structure as index, for users who land here directly) ─── -->
 <div id="auth-modal" class="auth-modal-overlay hidden">
   <div class="auth-modal-card">
     <button class="auth-modal-close" onclick="closeAuthModal()">×</button>
@@ -58,33 +96,14 @@
   </div>
 </div>
 
-<!-- ─── HERO ─── -->
-<section class="hero">
-  <div class="hero-inner">
-    <p class="hero-eyebrow">Manchester · Every Friday</p>
-    <h1 class="hero-title">Your night<br/><span>starts here.</span></h1>
-    <p class="hero-sub">Find pub crawls, meet friends, and explore the city together.</p>
-    <button class="btn-hero" onclick="scrollToEvents()">See what's on</button>
-  </div>
-</section>
-
-<!-- ─── WHO'S ACTIVE ─── -->
-<section class="active-strip" id="active-strip">
-  <div class="strip-inner">
-    <span class="strip-label">Active now</span>
-    <div class="strip-avatars" id="strip-avatars"></div>
-  </div>
-</section>
-
-<!-- ─── UPCOMING EVENTS FEED ─── -->
-<section class="events-feed" id="events-feed">
-  <div class="feed-inner">
-    <h2 class="feed-heading">Upcoming</h2>
-    <div class="event-cards" id="event-cards"></div>
-  </div>
-</section>
+<!-- hidden file input for profile photo -->
+<input type="file" id="photo-upload" accept="image/*" class="hidden" onchange="handlePhotoUpload(event)" />
 
 <script src="shared.js"></script>
-<script src="index.js"></script>
+<script src="event.js"></script>
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZOLaFpzGxThm2_-T4pwzKkk-yIE9gnYQ&callback=initMap"
+  async defer>
+</script>
 </body>
 </html>

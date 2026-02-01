@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Downtown Pub Crawl</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ─────────────────────────────────────────
+     AUTH SCREEN
+     ───────────────────────────────────────── -->
+<div id="auth-screen" class="screen">
+  <div class="auth-card">
+    <div class="auth-logo">🍺</div>
+    <h1>Downtown Pub Crawl</h1>
+    <p class="auth-subtitle">Sign up or log in to join the night</p>
+
+    <div id="signup-form" class="auth-form">
+      <h2>Create Account</h2>
+      <div class="field">
+        <label>Name</label>
+        <input type="text" id="signup-name" placeholder="Your name" autocomplete="off" />
+      </div>
+      <div class="field">
+        <label>Email</label>
+        <input type="email" id="signup-email" placeholder="you@example.com" autocomplete="off" />
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <input type="password" id="signup-password" placeholder="Min 6 characters" />
+      </div>
+      <button class="btn-primary" onclick="handleSignUp()">Sign Up</button>
+      <p class="auth-switch">Already have an account? <a href="#" onclick="toggleForm('login')">Log in</a></p>
+    </div>
+
+    <div id="login-form" class="auth-form hidden">
+      <h2>Welcome Back</h2>
+      <div class="field">
+        <label>Email</label>
+        <input type="email" id="login-email" placeholder="you@example.com" autocomplete="off" />
+      </div>
+      <div class="field">
+        <label>Password</label>
+        <input type="password" id="login-password" placeholder="Password" />
+      </div>
+      <button class="btn-primary" onclick="handleLogIn()">Log In</button>
+      <p class="auth-switch">No account? <a href="#" onclick="toggleForm('signup')">Sign up</a></p>
+    </div>
+
+    <p id="auth-error" class="error-msg hidden"></p>
+  </div>
+</div>
+
+<!-- ─────────────────────────────────────────
+     MAIN EVENT SCREEN
+     ───────────────────────────────────────── -->
+<div id="main-screen" class="screen hidden">
+
+  <header class="top-bar">
+    <h1>Downtown Pub Crawl</h1>
+    <div class="top-bar-right">
+      <button class="btn-ghost" id="join-btn" onclick="handleJoinClick()">Join</button>
+      <div class="avatar-header" onclick="openProfileEditor()">
+        <img id="header-avatar" src="" alt="My profile" />
+      </div>
+    </div>
+  </header>
+
+  <section class="map-section">
+    <div id="map"></div>
+  </section>
+
+  <main class="content">
+    <p class="event-meta"><strong>Friday, May 27</strong> · Starts at 7:00 PM</p>
+
+    <h2>Schedule</h2>
+    <ul class="schedule">
+      <li onclick="openPub(0)"><span>7:00 PM</span> O'Malley's Tavern</li>
+      <li onclick="openPub(1)"><span>8:00 PM</span> The Tipsy Pint</li>
+      <li onclick="openPub(2)"><span>9:00 PM</span> The Brew House</li>
+      <li onclick="openPub(3)"><span>10:00 PM</span> Club Metro</li>
+    </ul>
+
+    <h2>Who's Going?</h2>
+    <div class="profiles" id="profiles-container"></div>
+  </main>
+</div>
+
+<!-- ─────────────────────────────────────────
+     MODAL
+     ───────────────────────────────────────── -->
+<div id="modal-overlay" class="modal-overlay hidden" onclick="handleModalBg(event)">
+  <div class="modal">
+    <button class="close-btn" onclick="closeModal()">×</button>
+    <div id="modal-content"></div>
+  </div>
+</div>
+
+<!-- Hidden file input for photo upload -->
+<input type="file" id="photo-upload" accept="image/*" class="hidden" onchange="handlePhotoUpload(event)" />
+
+<script src="script.js"></script>
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZOLaFpzGxThm2_-T4pwzKkk-yIE9gnYQ&callback=initMap"
+  async defer>
+</script>
+</body>
+</html>

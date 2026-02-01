@@ -123,3 +123,122 @@ h2 {
 .hidden {
   display: none;
 }
+
+/* ──────────────────────────────
+   Join modal overrides
+   ────────────────────────────── */
+.join-modal {
+  max-width: 420px;
+  text-align: left;
+}
+
+.join-modal h2 {
+  margin: 0 0 20px;
+  text-align: center;
+  font-size: 1.25rem;
+}
+
+/* Form fields */
+.form-group {
+  margin-bottom: 16px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #5f6368;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-group label .optional {
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  color: #9aa0a6;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #dadce0;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.2s;
+  background: #fafafa;
+}
+
+.form-group input:focus {
+  border-color: #1a73e8;
+  background: #fff;
+}
+
+/* Avatar picker row */
+.avatar-picker {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.avatar-option {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 3px solid transparent;
+  transition: border-color 0.15s, transform 0.15s;
+  object-fit: cover;
+}
+
+.avatar-option:hover {
+  transform: scale(1.08);
+}
+
+.avatar-option.selected {
+  border-color: #1a73e8;
+  box-shadow: 0 0 0 2px rgba(26,115,232,0.25);
+}
+
+/* Submit button */
+.join-submit-btn {
+  display: block;
+  width: 100%;
+  margin-top: 24px;
+  padding: 11px;
+  background: #1a73e8;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.join-submit-btn:hover {
+  background: #1558b0;
+}
+
+/* Joined state for header button */
+.join-btn.joined {
+  background: #34a853;
+  pointer-events: none;
+}
+
+/* Shake animation for validation */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%      { transform: translateX(-6px); }
+  40%      { transform: translateX(6px); }
+  60%      { transform: translateX(-4px); }
+  80%      { transform: translateX(4px); }
+}
+
+.shake {
+  animation: shake 0.4s ease;
+  border-color: #ea4335 !important;
+}
